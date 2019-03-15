@@ -25,8 +25,6 @@ Build
 first, config your cross build toolchain at config.mk.
 
 then:
-	$ cd raspbian-tee
-
 	$ ./prepare-env.sh #if your had download all package, skip this.
 
 	$ ./mkout.sh #create output directory tree.
