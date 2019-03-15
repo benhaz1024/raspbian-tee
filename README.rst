@@ -18,7 +18,9 @@ Dependence
 ----------
 
 - Host OS: Ubuntu 16.04 or later.
-- cross build toolchain: aarch64 & aarch32 both needed, and aarch32 must > 6.0. (you can get one, from linaro)
+- cross build toolchain: aarch64 & aarch32 both needed, and aarch32 must > 6.0. (you can get one from `linaro`_)
+
+- Hardware: Support Only Raspberry Pi 3rd generation (such as 3B/3B+) board, not first or 2nd generation board.
 
 Build
 -----
@@ -36,12 +38,12 @@ then:
 Install
 -------
 
-Prepare a SD Card Flashed with an official Raspbian image, mount it in linux, such as /media/usr/boot & /meddia/user/rootfs.
+Prepare a SD Card Flashed with an official Raspbian image, mount it in linux, such as /media/user/boot & /media/user/rootfs.
 
 Then:
 	$cp ./out/boot/* /media/user/boot
 
-	$cp ./out/rootfs/* /media/user/rootfs
+	$cp -r ./out/rootfs/* /media/user/rootfs
 
 Test OP-TEE is ok
 -----------------
@@ -59,4 +61,4 @@ TODO
 Shell scripts should be moved to Makefile.
 
 .. _ATF RPI3 support: https://github.com/ARM-software/arm-trusted-firmware/blob/620d9832f96ffcaf86d38b703ca913438d6eea7c/plat/rpi3/platform.mk#L164
-
+.. _linaro: https://releases.linaro.org/components/toolchain/binaries/
