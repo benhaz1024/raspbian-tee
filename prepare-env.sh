@@ -3,6 +3,15 @@
 	mkdir dl
 }
 
+[ ! -d "./out" ] && {
+    mkdir out
+    mkdir out/boot
+    mkdir out/rootfs
+    mkdir out/rootfs/bin
+    mkdir out/rootfs/lib
+    mkdir out/rootfs/lib/optee_armtz
+}
+
 [ -f "./dl/arm-trusted-firmware.tar.gz" ] && {
 	echo  "\033[32marm-trusted-firmware package existed.\n\033[0m"
 } || {
