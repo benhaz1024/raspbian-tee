@@ -1,4 +1,8 @@
 #!/bin/sh
+[! -d "./dl" ] && {
+	mkdir dl
+}
+
 [ ! -f "./dl/arm-trusted-firmware.tar.gz" ] && {
 	echo  "\033[32mDownload arm-trusted-firmware\n\033[0m"
 	wget -O dl/arm-trusted-firmware.tar.gz https://github.com/ARM-software/arm-trusted-firmware/archive/v2.0.tar.gz	
