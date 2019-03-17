@@ -24,13 +24,16 @@ Dependence
 
 Build
 -----
-first, config your cross build toolchain at config.mk.
+First, config your cross build toolchain at config.mk.
 
-then:
- | $ **./prepare-env.sh** #if your had download all packages, skip this.
- | $ **./mkout.sh** #create output directory tree.
- | $ **make patch** #this will patch linux kernel & ATF, if you have done before, skip this.
- | $ **make**
+Then:
+
+.. code:: bash
+
+	$ ./prepare-env.sh** #if your had download all packages, skip this.
+	$ **./mkout.sh** #create output directory tree.
+	$ **make patch** #this will patch linux kernel & ATF, if you have done before, skip this.
+	$ **make**
 
 When success, it should seem as:
 
@@ -42,8 +45,11 @@ Install
 Prepare a SD Card Flashed with an official Raspbian image, mount it in linux, such as /media/user/boot & /media/user/rootfs.
 
 Then:
- | $ cp ./out/boot/* /media/user/boot
- | $ cp -r ./out/rootfs/* /media/user/rootfs
+
+.. code:: bash
+
+	$ cp ./out/boot/* /media/user/boot
+	$ cp -r ./out/rootfs/* /media/user/rootfs
 
 Test OP-TEE is ok
 -----------------
