@@ -18,22 +18,26 @@ Dependence
 ----------
 
 - Host OS: Ubuntu 16.04 or later.
-- cross build toolchain: aarch64 & aarch32 both needed, and aarch32 must > 6.0. (you can get one from `linaro`_)
+- Cross Build Toolchain: AARCH64 & AARCH32 both needed, and AARCH32 must > 6.0. (you can get one from `linaro`_)
 
-- Hardware: Support Only Raspberry Pi 3rd generation (such as 3B/3B+) board, not first or 2nd generation board.
+- Hardware: Support only Raspberry Pi 3rd generation (such as 3B/3B+) board, not first or 2nd generation board.
 
 Build
 -----
 first, config your cross build toolchain at config.mk.
 
 then:
-	$ ./prepare-env.sh #if your had download all package, skip this.
+	$ ./prepare-env.sh #if your had download all packages, skip this.
 
 	$ ./mkout.sh #create output directory tree.
 
 	$ make patch #this will patch linux kernel & ATF, if you have done before, skip this.
 
 	$ make
+
+When success, it should seem as:
+
+.. image:: doc/raspbian-tee-output.jpg
 
 Install
 -------
