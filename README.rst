@@ -27,13 +27,10 @@ Build
 first, config your cross build toolchain at config.mk.
 
 then:
-	$ ./prepare-env.sh #if your had download all packages, skip this.
-
-	$ ./mkout.sh #create output directory tree.
-
-	$ make patch #this will patch linux kernel & ATF, if you have done before, skip this.
-
-	$ make
+ | $ **./prepare-env.sh** #if your had download all packages, skip this.
+ | $ **./mkout.sh** #create output directory tree.
+ | $ **make patch** #this will patch linux kernel & ATF, if you have done before, skip this.
+ | $ **make**
 
 When success, it should seem as:
 
@@ -45,9 +42,8 @@ Install
 Prepare a SD Card Flashed with an official Raspbian image, mount it in linux, such as /media/user/boot & /media/user/rootfs.
 
 Then:
-	$cp ./out/boot/* /media/user/boot
-
-	$cp -r ./out/rootfs/* /media/user/rootfs
+ | $ cp ./out/boot/* /media/user/boot
+ | $ cp -r ./out/rootfs/* /media/user/rootfs
 
 Test OP-TEE is ok
 -----------------
@@ -56,7 +52,8 @@ Boot Rsapberry Pi with the Modified image in SD Card.
 
 When you are logined,then:
 
-	$ ls /dev/tee*
+ | $ ls /dev/tee*
+
 If find "/dev/tee0" and "/dev/teepriv0", then all is OK.
 
 TODO
