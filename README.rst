@@ -30,10 +30,10 @@ Then:
 
 .. code:: bash
 
-	$ ./prepare-env.sh** #if your had download all packages, skip this.
-	$ **./mkout.sh** #create output directory tree.
-	$ **make patch** #this will patch linux kernel & ATF, if you have done before, skip this.
-	$ **make**
+	$ ./prepare-env.sh # if your had download all packages, skip this.
+	$ ./mkout.sh # create output directory tree.
+	$ make patch # this will patch linux kernel & ATF, if you have done before, skip this.
+	$ make
 
 When success, it should seem as:
 
