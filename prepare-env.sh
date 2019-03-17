@@ -36,6 +36,14 @@
 	}
 }
 
+[ ! -d "./optee_examples" ] && {
+	echo  "\033[32mDownload optee_examples \n\033[0m"
+	wget -O optee_examples.tar.gz https://github.com/linaro-swg/optee_examples/archive/3.3.0.tar.gz
+	tar zxf optee_examples.tar.gz && {
+		mv optee_examples-* optee_examples
+		rm optee_examples.tar.gz
+	}
+}
 [ ! -d "./linux" ] && {
 	echo  "\033[32mDownload linux\n\033[0m"
 	wget -O linux.tar.gz https://github.com/raspberrypi/linux/archive/raspberrypi-kernel_1.20190215-1.tar.gz

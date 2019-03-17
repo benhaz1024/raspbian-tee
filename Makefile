@@ -3,7 +3,7 @@ include ${TEE_SDK_DIR}/config.mk
 
 TEE_SDK_DIR = $(shell pwd)
 
-all: arm-tf-final optee-client-final linux-final boot-final
+all: arm-tf-final optee-client-final optee-examples-final linux-final boot-final
 
 ################################################################################
 # ARM Trust Firmware
@@ -115,6 +115,31 @@ clean: arm-tf-clean u-boot-clean optee-os-clean optee-client-clean
 
 install:
 .PHONY: install
+
+################################################################################
+# OP-TEE examples
+################################################################################
+.PHONY: optee-examples
+optee-examples:
+	$(MAKE) -C ${TEE_SDK_DIR}/optee_examples \
+HOST_CROSS_COMPILE=${CROSS_COMPILE} \
+TEEC_EXPORT=${TEE_SDK_DIR}/optee_client/out/export \
+TA_DEV_KIT_DIR=${TEE_SDK_DIR}/optee_os/out/arm/export-ta_arm32
+
+.PHONY: optee-examples-final
+optee-examples-final: optee-examples
+	cp ${TEE_SDK_DIR}/optee_examples/acipher/host/optee_example_acipher ./out/rootfs/bin/
+	cp ${TEE_SDK_DIR}/optee_examples/aes/host/optee_example_aes ./out/rootfs/bin/
+	cp ${TEE_SDK_DIR}/optee_examples/hello_world/host/optee_example_hello_world ./out/rootfs/bin/
+	cp ${TEE_SDK_DIR}/optee_examples/hotp/host/optee_example_hotp ./out/rootfs/bin/
+	cp ${TEE_SDK_DIR}/optee_examples/random/host/optee_example_random ./out/rootfs/bin/
+	cp ${TEE_SDK_DIR}/optee_examples/secure_storage/host/optee_example_secure_storage ./out/rootfs/bin/
+	cp ${TEE_SDK_DIR}/optee_examples/acipher/ta/*.ta ./out/rootfs/lib/optee_armtz/
+	cp ${TEE_SDK_DIR}/optee_examples/aes/ta/*.ta ./out/rootfs/lib/optee_armtz/
+	cp ${TEE_SDK_DIR}/optee_examples/hello_world/ta/*.ta ./out/rootfs/lib/optee_armtz/
+	cp ${TEE_SDK_DIR}/optee_examples/hotp/ta/*.ta ./out/rootfs/lib/optee_armtz/
+	cp ${TEE_SDK_DIR}/optee_examples/random/ta/*.ta ./out/rootfs/lib/optee_armtz/
+	cp ${TEE_SDK_DIR}/optee_examples/secure_storage/ta/*.ta ./out/rootfs/lib/optee_armtz/
 
 ################################################################################
 # linux
