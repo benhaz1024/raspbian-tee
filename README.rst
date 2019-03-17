@@ -48,7 +48,7 @@ Then:
 .. code:: bash
 
 	$ cp ./out/boot/* /media/user/boot
-	$ cp -r ./out/rootfs/* /media/user/rootfs
+	$ sudo cp -r ./out/rootfs/* /media/user/rootfs
 
 Test OP-TEE is ok
 -----------------
@@ -60,8 +60,12 @@ When you are logined,then:
 .. code:: bash
 
 	$ ls /dev/tee*
+	/dev/tee0 /dev/teepriv0 # this prove tee driver & optee-os works.
+	$ sudo tee-supplicant &
+	$ sudo optee_example_hello_world
 
-If find "/dev/tee0" and "/dev/teepriv0", then all is OK.
+It should be no errors, then all is OK.
+
 
 TODO
 ----
