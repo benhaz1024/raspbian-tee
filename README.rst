@@ -58,7 +58,9 @@ Boot Rsapberry Pi with the Modified image in SD Card.
 
 When you are logined,then:
 
- | $ ls /dev/tee*
+.. code:: bash
+
+	$ ls /dev/tee*
 
 If find "/dev/tee0" and "/dev/teepriv0", then all is OK.
 
